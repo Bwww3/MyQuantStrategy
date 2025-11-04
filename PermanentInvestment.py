@@ -28,7 +28,7 @@ def set_strategy_params(context):
         '515100.XSHG',        # Low-vol Dividend ETF, starting from 2020/7/31
         '511360.XSHG',        # Money Market ETF, starting from 2020/9/31
     ]
-    g.weights_optimizer_type = 2
+    g.weights_optimizer_type = 1
     
 
 def set_variables(context):
@@ -44,7 +44,7 @@ def set_backtest_params(context):
     
     
 def set_cost_params(context):
-    set_slippage(FixedSlippage(0))
+    set_slippage(PriceRelatedSlippage(0.01))
     set_order_cost(
         OrderCost(
             close_tax=0.001,
